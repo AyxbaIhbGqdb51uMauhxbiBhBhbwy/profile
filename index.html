@@ -23,7 +23,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
+            display: none; /* Initially hidden */
         }
         video {
             width: 100%;
@@ -58,34 +58,12 @@
             color: black;
             cursor: pointer;
         }
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        .particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: move 5s linear infinite;
-        }
-        @keyframes move {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100vw, 100vh);
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="video-background">
+    <div class="video-background" id="video-background">
         <video autoplay muted loop>
-            <source src="/background.mp4" type="video/mp4">
+            <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -93,28 +71,22 @@
     <div class="profile-container">
         <h1>My Profile</h1>
         <p>Welcome to my profile page.</p>
-        <a href="#" class="button">Explore</a>
+        <a id="explore-btn" href="#" class="button">Explore</a>
     </div>
     
-    <audio id="background-music" autoplay loop>
-        <source src="/judas.mp3" type="audio/mp3">
+    <audio id="background-music" loop style="display: none;">
+        <source src="judas.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
     
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const particleContainer = document.createElement('div');
-            particleContainer.className = 'particles';
-            document.body.appendChild(particleContainer);
+        document.getElementById('explore-btn').addEventListener('click', () => {
+            const videoBackground = document.getElementById('video-background');
+            const music = document.getElementById('background-music');
 
-            for (let i = 0; i < 100; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
-                particleContainer.appendChild(particle);
-            }
+            videoBackground.style.display = 'block'; // Show video
+            music.style.display = 'block'; // Make audio element visible
+            music.play(); // Play music
         });
     </script>
 </body>
