@@ -3,91 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dark Profile</title>
+    <title>My Profile</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
             font-family: Arial, sans-serif;
-            color: white;
+            background: #0a0a0a;
+            color: #e0e0e0;
             overflow: hidden;
-            background-color: #0d1117;
         }
-        .video-background {
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        header, section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        header:hover, section:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.7);
+        }
+        .profile {
+            text-align: center;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 20px white;
+        }
+        .glow-text {
+            color: #ffffff;
+            text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+        }
+        h1, h2 {
+            margin: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h2 {
+            text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+        }
+        #skills ul {
+            list-style: none;
+            padding: 0;
+        }
+        #skills li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        #skills li img {
+            width: 32px;
+            height: 32px;
+        }
+        #social-media ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        #social-media li {
+            display: flex;
+            align-items: center;
+        }
+        #social-media li img {
+            width: 32px;
+            height: 32px;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #00ff7f;
+        }
+        #friends {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .friend {
+            text-align: center;
+        }
+        .friend img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 10px white;
+        }
+        .friend .name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .friend .username {
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            display: none; /* Initially hidden */
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 4em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .button {
-            padding: 10px 20px;
-            border: 2px solid white;
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: white;
-            color: black;
-            cursor: pointer;
+            background: url('https://i.imgur.com/U8CGrJU.gif') center center/cover no-repeat;
+            opacity: 0.2;
         }
     </style>
 </head>
 <body>
-    <div class="video-background" id="video-background">
-        <video autoplay muted loop>
-            <source src="background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    
-    <div class="profile-container">
-        <h1>My Profile</h1>
-        <p>Welcome to my profile page.</p>
-        <a id="explore-btn" href="#" class="button">Explore</a>
-    </div>
-    
-    <audio id="background-music" loop style="display: none;">
-        <source src="judas.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    
-    <script>
-        document.getElementById('explore-btn').addEventListener('click', () => {
-            const videoBackground = document.getElementById('video-background');
-            const music = document.getElementById('background-music');
+    <div class="particles"></div>
+    <div class="container">
+        <header>
+            <div class="profile">
+                <img src="path-to-your-pfp.jpg" alt="Profile Picture">
+                <h1 class="glow-text">Your Name</h1>
+                <p>Your Pronouns</p>
+                <p class="glow-text">A short description about yourself.</p>
+            </div>
+        </header>
 
-            videoBackground.style.display = 'block'; // Show video
-            music.style.display = 'block'; // Make audio element visible
-            music.play(); // Play music
-        });
-    </script>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML">HTML</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS">CSS</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">JavaScript</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">Python</li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Lua">Lua</li>
+            </ul>
+        </section>
+
+        <section id="social-media">
+            <h2>Social Media</h2>
+            <ul>
+                <li><a href="https://discord.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord"> Discord</a></li>
+                <li><a href="https://github.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub"> GitHub</a></li>
+                <li><a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram</a></li>
+                <li><a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"> YouTube</a></li>
+            </ul>
+        </section>
+
+        <section id="friends">
+            <h2>Friends</h2>
+            <div class="friend">
+                <img src="path-to-friend1-pfp.jpg" alt="Friend 1">
+                <div class="name">Friend Name 1</div>
+                <div class="username">@friend1</div>
+            </div>
+            <div class="friend">
+                <img src="path-to-friend2-pfp.jpg" alt="Friend 2">
+                <div class="name">Friend Name 2</div>
+                <div class="username">@friend2</div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
