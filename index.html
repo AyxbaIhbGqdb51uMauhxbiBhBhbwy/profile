@@ -124,6 +124,26 @@
             background: url('https://i.imgur.com/U8CGrJU.gif') center center/cover no-repeat;
             opacity: 0.2;
         }
+    .discord-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #5865F2; /* Discord purple */
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .discord-button:hover {
+        background-color: #404EED;
+        box-shadow: 0 8px 20px rgba(88, 101, 242, 0.7);
+        transform: scale(1.05);
+    }
     </style>
 </head>
 <body>
@@ -159,19 +179,22 @@
             </ul>
         </section>
 
-        <section id="friends">
-            <h2>Friends</h2>
-            <div class="friend">
-                <img src="8b2a221f714a5d1abcb241def1fcf959.png" alt="Friend 1">
-                <div class="name">Jova</div>
-                <div class="username">@jova3435</div>
-            </div>
-            <div class="friend">
-                <img src="37baf0deff8e2a1a3cddda717a3d3e40.jpg" alt="Friend 2">
-                <div class="name">Dêlabeто</div>
-                <div class="username">@nous_i</div>
-            </div>
-        </section>
+<section id="friends">
+    <h2>Friends</h2>
+    <div class="friend">
+        <img src="8b2a221f714a5d1abcb241def1fcf959.png" alt="Friend 1">
+        <div class="name">Jova</div>
+        <div class="username">@jova3435</div>
+        <a href="https://discord.gg/example1" target="_blank" class="discord-button">Join Discord</a>
+    </div>
+    <div class="friend">
+        <img src="37baf0deff8e2a1a3cddda717a3d3e40.jpg" alt="Friend 2">
+        <div class="name">Dêlabeто</div>
+        <div class="username">@nous_i</div>
+        <a href="https://discord.gg/example2" target="_blank" class="discord-button">Join Discord</a>
+    </div>
+</section>
+
     </div>
 </body>
 </html>
